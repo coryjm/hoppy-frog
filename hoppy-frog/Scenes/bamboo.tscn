@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://b68ik874kckaa"]
+
+[ext_resource type="Texture2D" uid="uid://daeso6kp7tw5t" path="res://Assets/World/bamboo_long.png" id="1_2w6xr"]
+[ext_resource type="Script" uid="uid://daoot6ifjif50" path="res://Scripts/bamboo.gd" id="1_vna4j"]
+[ext_resource type="Texture2D" uid="uid://ggqggl1j10mr" path="res://Assets/World/bamboo_medium.png" id="2_vna4j"]
+[ext_resource type="Texture2D" uid="uid://cinfd40m2fejk" path="res://Assets/World/bamboo_short.png" id="3_gb84i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4ypl"]
+atlas = ExtResource("1_2w6xr")
+region = Rect2(0, 7, 486, 1100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnosv"]
+atlas = ExtResource("2_vna4j")
+region = Rect2(0, 100, 486, 860)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_re88q"]
+atlas = ExtResource("3_gb84i")
+region = Rect2(0, 100, 486, 750)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dlatp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4ypl")
+}],
+"loop": true,
+"name": &"long",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnosv")
+}],
+"loop": false,
+"name": &"medium",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_re88q")
+}],
+"loop": false,
+"name": &"short",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_foyyd"]
+size = Vector2(35, 131)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v75ew"]
+size = Vector2(34, 157)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xtr8v"]
+size = Vector2(34, 189)
+
+[node name="bamboo" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_vna4j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+sprite_frames = SubResource("SpriteFrames_dlatp")
+animation = &"long"
+
+[node name="CollisionShape2D_Short" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 3.5)
+shape = SubResource("RectangleShape2D_foyyd")
+disabled = true
+
+[node name="CollisionShape2D_Medium" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 5.5)
+shape = SubResource("RectangleShape2D_v75ew")
+disabled = true
+
+[node name="CollisionShape2D_Long" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 15.5)
+shape = SubResource("RectangleShape2D_xtr8v")
+disabled = true

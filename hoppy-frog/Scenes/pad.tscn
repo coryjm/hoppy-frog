@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://6rsid01iclmc"]
+
+[ext_resource type="Texture2D" uid="uid://k70t1o4npw5a" path="res://Assets/World/frog_pad.png" id="1_prpgd"]
+[ext_resource type="Script" uid="uid://dns5fvfde3vtl" path="res://Scripts/pad.gd" id="1_wtrhp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtrhp"]
+atlas = ExtResource("1_prpgd")
+region = Rect2(27, 200, 500, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rtqnq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtrhp")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fka86"]
+radius = 12.0
+
+[node name="pad" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_wtrhp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -15)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_rtqnq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -13)
+shape = SubResource("CircleShape2D_fka86")

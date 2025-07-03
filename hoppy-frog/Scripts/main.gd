@@ -5,6 +5,10 @@ extends Node
 var score
 
 
+func new_game():
+	score = 0
+	$Player.start($StartPosition.position)
+	$StartTimer.start()
 
 
 func _on_cloud_timer_timeout() -> void:
@@ -55,4 +59,5 @@ func _on_hud_start_game() -> void:
 	$BambooTimer.start()
 	$ScoreTimer.start()
 	$HUD/Message.hide()
-	score = 0
+	$Player.show()
+	new_game()

@@ -38,6 +38,7 @@ animations = [{
 size = Vector2(27, 17)
 
 [node name="Player" type="Area2D"]
+z_index = 2
 script = ExtResource("1_hqtel")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

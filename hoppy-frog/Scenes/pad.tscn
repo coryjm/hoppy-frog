@@ -22,6 +22,8 @@ animations = [{
 radius = 12.0
 
 [node name="pad" type="RigidBody2D"]
+visibility_layer = 2
+z_index = 1
 collision_layer = 2
 gravity_scale = 0.0
 script = ExtResource("1_wtrhp")

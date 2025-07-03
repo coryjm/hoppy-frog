@@ -54,6 +54,7 @@ size = Vector2(36, 248)
 size = Vector2(38, 271)
 
 [node name="bamboo" type="StaticBody2D"]
+z_index = 1
 script = ExtResource("1_vna4j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

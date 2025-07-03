@@ -38,19 +38,20 @@ one_shot = true
 wait_time = 1.413
 
 [node name="BambooTop" type="Marker2D" parent="."]
-position = Vector2(1182, 3)
+position = Vector2(410, 3)
 
 [node name="BambooBottom" type="Marker2D" parent="."]
-position = Vector2(1182, 646)
+position = Vector2(410, 646)
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(375, 328)
+position = Vector2(119, 331)
 
 [node name="Player" parent="." instance=ExtResource("2_8gbba")]
-position = Vector2(369, 340)
+position = Vector2(140, 336)
 pad_scene = ExtResource("2_jjvhh")
 
 [node name="CloudPath" type="Path2D" parent="."]
+position = Vector2(-772, 0)
 curve = SubResource("Curve2D_21xkr")
 
 [node name="CloudSpawnLocation" type="PathFollow2D" parent="CloudPath"]

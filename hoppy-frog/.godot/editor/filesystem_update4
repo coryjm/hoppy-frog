@@ -1,1 +1,10 @@
 res://Scenes/main.tscn
+res://Scenes/bamboo.tscn
+res://Scripts/bamboo.gd
+res://Scripts/cloud.gd
+res://Scripts/pad.gd
+res://Scenes/pad.tscn
+res://Scenes/cloud.tscn
+res://Scripts/main.gd
+res://Scripts/player.gd
+res://Scenes/player.tscn

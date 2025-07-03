@@ -45,34 +45,38 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_foyyd"]
-size = Vector2(35, 131)
+size = Vector2(36, 237)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v75ew"]
-size = Vector2(34, 157)
+size = Vector2(36, 248)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xtr8v"]
-size = Vector2(34, 189)
+size = Vector2(38, 271)
 
-[node name="bamboo" type="RigidBody2D"]
-gravity_scale = 0.0
+[node name="bamboo" type="StaticBody2D"]
 script = ExtResource("1_vna4j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.35, 0.35)
+position = Vector2(-1, -119)
+scale = Vector2(0.2, 0.346291)
 sprite_frames = SubResource("SpriteFrames_dlatp")
-animation = &"long"
+animation = &"short"
 
 [node name="CollisionShape2D_Short" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 3.5)
+position = Vector2(-3, -121.5)
 shape = SubResource("RectangleShape2D_foyyd")
 disabled = true
 
 [node name="CollisionShape2D_Medium" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 5.5)
+position = Vector2(-3, -127)
 shape = SubResource("RectangleShape2D_v75ew")
 disabled = true
 
 [node name="CollisionShape2D_Long" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 15.5)
+position = Vector2(-3, -136.5)
 shape = SubResource("RectangleShape2D_xtr8v")
 disabled = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

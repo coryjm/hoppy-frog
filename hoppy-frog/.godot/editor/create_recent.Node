@@ -1,2 +1,6 @@
+Timer
+Label
+Button
+CanvasLayer
 VisibleOnScreenNotifier2D
 StaticBody2D

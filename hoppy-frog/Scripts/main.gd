@@ -4,11 +4,7 @@ extends Node
 
 var score
 
-func _ready():
-	$CloudTimer.start()
-	$BambooTimer.start()
-	$ScoreTimer.start()
-	score = 0
+
 
 
 func _on_cloud_timer_timeout() -> void:
@@ -40,8 +36,23 @@ func _on_bamboo_timer_timeout() -> void:
 
 func _on_score_timer_timeout() -> void:
 	score += 1
+	$HUD.update_score(score)
 	print(score)
 
 
 func _on_player_hit() -> void:
 	print("game over")
+	$CloudTimer.stop()
+	$BambooTimer.stop()
+	$ScoreTimer.stop()
+	$HUD/Message.text = "Game Over"
+	$HUD/Message.show()
+	$HUD/StartButton.show()
+
+
+func _on_hud_start_game() -> void:
+	$CloudTimer.start()
+	$BambooTimer.start()
+	$ScoreTimer.start()
+	$HUD/Message.hide()
+	score = 0

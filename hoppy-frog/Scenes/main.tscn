@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dc41nrw1gs62s"]
+[gd_scene load_steps=8 format=3 uid="uid://dc41nrw1gs62s"]
 
 [ext_resource type="Script" uid="uid://3vohfox2lu5q" path="res://Scripts/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://dnbxtbysrvc18" path="res://Scenes/player.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://b68ik874kckaa" path="res://Scenes/bamboo.tscn" id="2_21xkr"]
 [ext_resource type="PackedScene" uid="uid://6rsid01iclmc" path="res://Scenes/pad.tscn" id="2_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://chq2wjivh6xgy" path="res://Scenes/cloud.tscn" id="2_kry3j"]
+[ext_resource type="PackedScene" uid="uid://tkrntnp8bgfb" path="res://Scenes/hud.tscn" id="6_21xkr"]
 
 [sub_resource type="Curve2D" id="Curve2D_21xkr"]
 _data = {
@@ -56,7 +57,10 @@ curve = SubResource("Curve2D_21xkr")
 position = Vector2(1213, 5)
 rotation = 1.58173
 
+[node name="HUD" parent="." instance=ExtResource("6_21xkr")]
+
 [connection signal="timeout" from="BambooTimer" to="." method="_on_bamboo_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="CloudTimer" to="." method="_on_cloud_timer_timeout"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
+[connection signal="start_game" from="HUD" to="." method="_on_hud_start_game"]

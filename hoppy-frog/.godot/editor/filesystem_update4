@@ -8,3 +8,5 @@ res://Scenes/cloud.tscn
 res://Scripts/main.gd
 res://Scripts/player.gd
 res://Scenes/player.tscn
+res://Scripts/hud.gd
+res://Scenes/hud.tscn

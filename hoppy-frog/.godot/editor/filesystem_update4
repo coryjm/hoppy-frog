@@ -4,4 +4,3 @@ res://Scenes/cloud.tscn
 res://Scenes/pad.tscn
 res://Scenes/player.tscn
 res://Scenes/hud.tscn
-res://Scripts/main.gd

@@ -45,36 +45,36 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_foyyd"]
-size = Vector2(36, 237)
+size = Vector2(36, 268)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v75ew"]
-size = Vector2(36, 248)
+size = Vector2(36, 290)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xtr8v"]
-size = Vector2(38, 271)
+size = Vector2(38, 308)
 
 [node name="bamboo" type="StaticBody2D"]
 z_index = 1
 script = ExtResource("1_vna4j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -119)
-scale = Vector2(0.2, 0.346291)
+position = Vector2(-1, -141.422)
+scale = Vector2(0.2, 0.415597)
 sprite_frames = SubResource("SpriteFrames_dlatp")
 animation = &"short"
 
 [node name="CollisionShape2D_Short" type="CollisionShape2D" parent="."]
-position = Vector2(-3, -121.5)
+position = Vector2(-3, -137)
 shape = SubResource("RectangleShape2D_foyyd")
 disabled = true
 
 [node name="CollisionShape2D_Medium" type="CollisionShape2D" parent="."]
-position = Vector2(-3, -127)
+position = Vector2(-3, -148)
 shape = SubResource("RectangleShape2D_v75ew")
 disabled = true
 
 [node name="CollisionShape2D_Long" type="CollisionShape2D" parent="."]
-position = Vector2(-3, -136.5)
+position = Vector2(-3, -155)
 shape = SubResource("RectangleShape2D_xtr8v")
 disabled = true
 

@@ -3,12 +3,17 @@ extends Node
 @export var cloud_scene: PackedScene
 
 var score
+var high_score
 
+func _ready():
+	load_high_score()
+	$HUD.update_high_score(high_score)
 
 func new_game():
 	score = 0
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
+	$MainMusic.play()
 
 
 func _on_cloud_timer_timeout() -> void:
@@ -42,7 +47,21 @@ func _on_score_timer_timeout() -> void:
 	score += 1
 	$HUD.update_score(score)
 	print(score)
+	
+func save_high_score():
+	var file = FileAccess.open("user://save.dat", FileAccess.WRITE)
+	if file:
+		file.store_32(high_score)
+		file.close()
 
+func load_high_score():
+	if FileAccess.file_exists("user://save.dat"):
+		var file = FileAccess.open("user://save.dat", FileAccess.READ)
+		if file:
+			high_score = file.get_32()
+			file.close()
+	else:
+		high_score = 0
 
 func _on_player_hit() -> void:
 	print("game over")
@@ -52,6 +71,12 @@ func _on_player_hit() -> void:
 	$HUD/Message.text = "Game Over"
 	$HUD/Message.show()
 	$HUD/StartButton.show()
+	$MainMusic.stop()
+	$GameOver.play()
+	if score > high_score:
+		high_score = score
+		save_high_score()
+	$HUD.update_high_score(high_score)
 
 
 func _on_hud_start_game() -> void:

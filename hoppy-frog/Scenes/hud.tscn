@@ -17,6 +17,14 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 64
 text = "0"
 
+[node name="HighScoreLabel" type="Label" parent="."]
+offset_left = 26.0
+offset_top = 30.0
+offset_right = 66.0
+offset_bottom = 118.0
+theme_override_font_sizes/font_size = 30
+text = "0"
+
 [node name="StartButton" type="Button" parent="."]
 modulate = Color(0.409542, 0.745816, 0.213937, 1)
 anchors_preset = 7

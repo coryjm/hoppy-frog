@@ -1,6 +1,8 @@
 res://Scenes/main.tscn
+res://Scripts/main.gd
 res://Scenes/bamboo.tscn
 res://Scenes/cloud.tscn
 res://Scenes/pad.tscn
 res://Scenes/player.tscn
 res://Scenes/hud.tscn
+res://Scripts/hud.gd

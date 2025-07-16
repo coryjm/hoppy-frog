@@ -1,5 +1,7 @@
-Timer
 Label
+AudioStreamPlayer
+AudioStreamPlayer2D
+Timer
 Button
 CanvasLayer
 VisibleOnScreenNotifier2D

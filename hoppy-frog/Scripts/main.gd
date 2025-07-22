@@ -4,6 +4,7 @@ extends Node
 
 var score
 var high_score
+var speed
 
 func _ready():
 	load_high_score()
@@ -22,7 +23,7 @@ func _on_cloud_timer_timeout() -> void:
 	cloud_spawn_location.progress_ratio = randf()
 	cloud.position = cloud_spawn_location.global_position
 	
-	var velocity = Vector2(-randf_range(50.0, 300.0), 0.0)
+	var _velocity = Vector2(-randf_range(50.0, 300.0), 0.0)
 
 	add_child(cloud)
 
@@ -32,14 +33,14 @@ func _on_bamboo_timer_timeout() -> void:
 	var bottom_bamboo = bamboo_scene.instantiate()
 	bottom_bamboo.position = $BambooBottom.global_position
 	bottom_bamboo.rotation_degrees = 0  # Upright
-	bottom_bamboo.speed = 200  # Consistent speed (adjust as needed)
+	bottom_bamboo.speed = speed  # Consistent speed (adjust as needed)
 	add_child(bottom_bamboo)
 
 	# Spawn top bamboo (upside down)
 	var top_bamboo = bamboo_scene.instantiate()
 	top_bamboo.position = $BambooTop.global_position
 	top_bamboo.rotation_degrees = 180  # Flipped upside down
-	top_bamboo.speed = 200  # Same speed
+	top_bamboo.speed = speed  # Same speed
 	add_child(top_bamboo)
 
 
@@ -86,3 +87,22 @@ func _on_hud_start_game() -> void:
 	$HUD/Message.hide()
 	$Player.show()
 	new_game()
+
+
+func _on_start_screen_easy() -> void:
+	speed = 200
+	get_node("StartScreen").visible = false
+	get_node("HUD").visible = true
+
+
+func _on_start_screen_medium() -> void:
+	speed = 250
+	get_node("StartScreen").visible = false
+	get_node("HUD").visible = true
+
+func _on_start_screen_hard() -> void:
+	speed = 300
+	get_node("StartScreen").visible = false
+	get_node("HUD").visible = true
+	
+	

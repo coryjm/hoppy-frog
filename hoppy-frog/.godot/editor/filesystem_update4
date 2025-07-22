@@ -1,8 +1,11 @@
-res://Scenes/main.tscn
+res://Scripts/start_screen.gd
+res://Scenes/start_screen.tscn
+res://Scenes/hud.tscn
 res://Scripts/main.gd
+res://Scenes/main.tscn
 res://Scenes/bamboo.tscn
 res://Scenes/cloud.tscn
 res://Scenes/pad.tscn
 res://Scenes/player.tscn
-res://Scenes/hud.tscn
+res://Scripts/bamboo.gd
 res://Scripts/hud.gd

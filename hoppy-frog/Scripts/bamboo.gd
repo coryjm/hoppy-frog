@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 var tree = randi() % 3 + 1
-var speed = 600
+@export var speed = 600
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if tree == 1:

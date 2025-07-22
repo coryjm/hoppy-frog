@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dc41nrw1gs62s"]
+[gd_scene load_steps=11 format=3 uid="uid://dc41nrw1gs62s"]
 
 [ext_resource type="Script" uid="uid://3vohfox2lu5q" path="res://Scripts/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://dnbxtbysrvc18" path="res://Scenes/player.tscn" id="2_8gbba"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://6rsid01iclmc" path="res://Scenes/pad.tscn" id="2_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://chq2wjivh6xgy" path="res://Scenes/cloud.tscn" id="2_kry3j"]
 [ext_resource type="PackedScene" uid="uid://tkrntnp8bgfb" path="res://Scenes/hud.tscn" id="6_21xkr"]
+[ext_resource type="PackedScene" uid="uid://bboao1ulxkk7m" path="res://Scenes/start_screen.tscn" id="6_ynf5e"]
 [ext_resource type="AudioStream" uid="uid://bco3fqq5majcl" path="res://Assets/Music/main.mp3" id="7_6bp64"]
 [ext_resource type="AudioStream" uid="uid://bqmkok01q7u1k" path="res://Assets/Music/gameOver.mp3" id="8_344ge"]
 
@@ -61,7 +62,10 @@ curve = SubResource("Curve2D_21xkr")
 position = Vector2(1213, 5)
 rotation = 1.58173
 
+[node name="StartScreen" parent="." instance=ExtResource("6_ynf5e")]
+
 [node name="HUD" parent="." instance=ExtResource("6_21xkr")]
+visible = false
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_6bp64")
@@ -76,4 +80,7 @@ volume_db = -11.243
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="CloudTimer" to="." method="_on_cloud_timer_timeout"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
+[connection signal="easy" from="StartScreen" to="." method="_on_start_screen_easy"]
+[connection signal="hard" from="StartScreen" to="." method="_on_start_screen_hard"]
+[connection signal="medium" from="StartScreen" to="." method="_on_start_screen_medium"]
 [connection signal="start_game" from="HUD" to="." method="_on_hud_start_game"]
